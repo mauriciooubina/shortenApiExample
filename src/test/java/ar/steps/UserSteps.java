@@ -37,4 +37,11 @@ public class UserSteps extends PageSteps {
         }
         return parameters;
     }
+
+
+    @Then("^I will get the proper status code '(.*)'$")
+    public void iWillGetTheProperStatusCodeStatusCode(String expStatusCode) {
+        int actualStatusCode = APIManager.getLastResponse().getStatusCode();
+        Assert.assertEquals(Integer.parseInt(expStatusCode), actualStatusCode, "The status code are not equals");
+    }
 }
